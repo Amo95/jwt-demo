@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/v1/test")
-public class HomeController {
+public class AuthenticationController {
 
     @GetMapping
     public String home() {
