@@ -1,5 +1,6 @@
 package dev.jwtdemo.controller;
 
+import dev.jwtdemo.dto.JwtAuthenticationResponse;
 import dev.jwtdemo.service.AuthenticationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
