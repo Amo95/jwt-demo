@@ -1,15 +1,24 @@
 package dev.jwtdemo.controller;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/v1/test")
+@RequestMapping("/api/v1/auth")
+@RequiredArgsConstructor
 public class AuthenticationController {
 
-    @GetMapping
-    public String home() {
-        return "Hello JWT";
+    private final AuthenticationService authenticationService;
+
+    @PostMapping("/signup")
+    public ResponseEntity<JwtAuthenticationResponse> signup(@RequestBody SignUpRequest request) {
+        return ResponseEntity.ok(authenticationService.signup(request));
+    }
+
+    @PostMapping("/signin")
+    public ResponseEntity<JwtAuthenticationResponse> signin(@RequestBody SigninRequest request) {
+        return ResponseEntity.ok(authenticationService.signin(request));
     }
 }
