@@ -1,7 +1,11 @@
 package dev.jwtdemo.service;
 
-import org.springframework.stereotype.Service;
+import dev.jwtdemo.dto.request.SignInRequest;
+import dev.jwtdemo.dto.request.SignUpRequest;
+import dev.jwtdemo.dto.response.JwtAuthenticationResponse;
 
-@Service
-public class AuthenticationService {
+public interface AuthenticationService {
+
+    JwtAuthenticationResponse signup(SignUpRequest request);
+    JwtAuthenticationResponse signin(SignInRequest request);
 }
